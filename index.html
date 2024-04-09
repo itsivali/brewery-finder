@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewery Finder</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Style for the search box */
+        #search-input {
+            width: 70%;
+            margin-right: 10px;
+            /* Add some space between the search box and the button */
+        }
+
+        /* Center the search button */
+        #search-button {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Center the radio buttons */
+        .form-check {
+            text-align: center;
+        }
+
+        /* Adjust spacing between radio buttons */
+        .form-check-inline {
+            margin-right: 10px;
+            /* Add some space between radio buttons */
+        }
+
+        .card-img-top {
+            height: 200px;
+            /* Adjust the height of the card image as needed */
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Brewery Finder</h1>
+                <div class="form-group d-flex justify-content-center align-items-center">
+                    <input type="text" id="search-input" class="form-control" placeholder="Search...">
+                    <button id="search-button" class="btn btn-primary">Search</button>
+                    
+                </div>
+                <div class="form-check d-flex justify-content-center">
+                    <label class="form-check-label form-check-inline" for="filter-city">
+                        <input type="radio" class="form-check-input" name="filter-type" id="filter-city" value="city"
+                            checked>
+                        City
+                    </label>
+                    <label class="form-check-label form-check-inline" for="filter-name">
+                        <input type="radio" class="form-check-input" name="filter-type" id="filter-name" value="name">
+                        Name
+                    </label>
+                    <label class="form-check-label form-check-inline" for="filter-state">
+                        <input type="radio" class="form-check-input" name="filter-type" id="filter-state" value="state">
+                        State
+                    </label>
+                    <label class="form-check-label form-check-inline" for="filter-state">
+                        <input type="radio" class="form-check-input" name="filter-type" id="filter-state" value="type">
+                        Type
+                    </label>
+                    <button id="random-button" class="btn btn-primary">Get Random Brewery</button>
+                </div>
+            </div>
+        </div>
+        <br>
+      
+
+        <div class="row" id="brewery-list"></div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (for Bootstrap functionalities) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Your JavaScript file -->
+    <script src="brewery-script.js"></script>
+</body>
+
+</html>
