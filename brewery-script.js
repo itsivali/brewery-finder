@@ -198,27 +198,31 @@ function renderRandomBrewery(brewery) {
 document.getElementById('random-button').addEventListener('click', handleRandomBrewery);
 
 
-// Function to handle search
+
+// Function to handle search input and filter breweries by name accordingly
 function handleSearch() {
-    const searchInput = document.getElementById('search-input');
-    const filterValue = searchInput.value.trim();
-    const filterType = document.querySelector('input[name="filter-type"]:checked').value;
+    const searchInput = document.getElementById('search-input').value.trim();
 
     fetchBreweryData()
         .then(data => {
-            const filteredBreweries = filterBreweries(data, filterValue, filterType);
+            const filteredBreweries = filterBreweries(data, searchInput, 'name');
             renderBreweries(filteredBreweries);
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
-
-    // Clear search input after searching
-    searchInput.value = '';
 }
 
-// Add event listener for search button
+// Add event listener for the search button
 document.getElementById('search-button').addEventListener('click', handleSearch);
+
+// Add event listener for search input to trigger search on Enter key press
+document.getElementById('search-input').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        handleSearch();
+    }
+});
+
 
 // Initially render breweries without any filter
 fetchBreweryData()
